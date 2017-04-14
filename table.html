@@ -7,7 +7,46 @@
     <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="c:\Users\yys\Documents\fun.js"></script>
+    <script >
+      function creat(str) {
+            $("#createtable").empty();
+            var table = $("<table class='table table-striped'>");
+            table.appendTo($("#createtable"));
+            var row = Math.ceil(Math.random() * 40 + 10);
+            var col = Math.ceil(Math.random() * 400 + 100);
+            for (var i = 0; i < row; i++) {
+                var tr = $("<tr></tr>");
+                tr.appendTo(table);
+                for (var j = 0; j < col; j++) {
+                    if (i == 0) {
+                        var td = $("<td>" + (j + 1).toString() + "</td>");
+                        td.appendTo(tr);
+                    }
+                    if (i > 0 && j == 0) {
+                        var td = $("<td>" + (i + 1).toString() + "</td>");
+                        td.appendTo(tr);
+                    }
+                    if (i != 0 && j != 0) {
+                        var td = $("<td>" + str[Math.floor(Math.random() * str.length)] + "</td>")
+                        td.appendTo(tr);
+                    }
+                }
+            }
+            $("#createtable").append();
+        }
+
+
+        function char() {
+            var st = new Array('q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'Q', ' W',
+                'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'Z', 'X', 'C', 'V', 'B', 'N', 'M');
+            creat(st);
+        }
+
+        function num() {
+            var st = new Array(1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 23);
+            creat(st);
+        }
+    </script>
 
 </head>
 
@@ -62,8 +101,8 @@
 
 
     <div class="btn-group">
-        <button type="button" class="btn btn-default" onclick="creatable()">生成数字</button>
-        <button type="button" class="btn btn-default" onclick="creatable1()">生成字母</button>
+        <button type="button" class="btn btn-default" onclick="num()">生成数字</button>
+        <button type="button" class="btn btn-default" onclick="char()">生成字母</button>
     </div>
 
 </body>
